@@ -1,31 +1,32 @@
 <template>
   <header class="bg-blackish">
-
     <TheHeader />
-
   </header>
-  <main></main>
-  <footer class="mt-10 bg-blackish">
+  <main>
+    <router-view></router-view>
+  </main>
+  <footer class="bg-blackish">
     <TheFooter />
   </footer>
 </template>
 
 <script lang="ts">
-import TheHeader from './components/header/TheHeader.vue';
+import TheHeader from "./components/header/TheHeader.vue";
 import { ref, onBeforeMount, onBeforeUnmount, provide } from "vue";
 import { calculateIsSmallScreen } from "./utils/functions";
-import TheFooter from './components/footer/TheFooter.vue';
+import TheFooter from "./components/footer/TheFooter.vue";
 
 export default {
   components: {
     TheHeader,
-    TheFooter
-},
+    TheFooter,
+  },
   setup() {
     const isSmallScreen = ref(calculateIsSmallScreen());
-
+    let screenWidth = ref(window.innerWidth);
     const handleResize = () => {
       isSmallScreen.value = calculateIsSmallScreen();
+      screenWidth.value = window.innerWidth;
     };
 
     onBeforeMount(() => {
@@ -37,19 +38,18 @@ export default {
     });
 
     provide("isSmallScreen", isSmallScreen);
-
+    provide("screenWidth", screenWidth);
     return {
-      isSmallScreen
+      isSmallScreen,
+      screenWidth
     };
   },
 };
-
 </script>
 
 <style>
-
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 h1 {
@@ -62,5 +62,4 @@ p {
   color: rgba(0, 0, 0, 0.5);
   line-height: 25px;
 }
-
 </style>

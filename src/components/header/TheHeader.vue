@@ -9,7 +9,7 @@
       <img :src="logo" alt="logo" class="" />
     </div>
     <div v-if="!isSmallScreen">
-      <Navigation />
+      <SiteNavigation />
     </div>
     <div class="md:w-1/12 mdd:w-auto">
       <img :src="cart" alt="cart" class="" />
@@ -22,7 +22,7 @@ import logo from "../../assets/shared/desktop/logo.svg";
 import cart from "../../assets/shared/desktop/icon-cart.svg";
 import hamburger from "../../assets/shared/tablet/icon-hamburger.svg";
 import { inject } from "vue";
-import Navigation from "./Navigation.vue";
+import SiteNavigation from "../shared/SiteNavigation.vue";
 
 export default {
   name: "TheHeader",
@@ -34,6 +34,6 @@ export default {
       isSmallScreen: inject("isSmallScreen"),
     };
   },
-  components: { Navigation },
+  components: { SiteNavigation },
 };
 </script>

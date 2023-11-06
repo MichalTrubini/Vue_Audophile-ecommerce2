@@ -9,7 +9,7 @@
 <script lang="ts">
 
 export default {
-  name: "Navigation",
+  name: "SiteNavigation",
   data() {
     return {
         navList: [
