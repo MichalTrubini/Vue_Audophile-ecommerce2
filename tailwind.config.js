@@ -14,6 +14,7 @@ export default {
         mobil: "15px"
       },
       screens: {
+        mdd: "821px",
         dt: "1440px",
       },
     },

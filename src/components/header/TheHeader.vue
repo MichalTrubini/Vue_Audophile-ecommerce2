@@ -1,8 +1,19 @@
 <template>
-  <div class="bg-blackish flex justify-between items-center px-6 py-8">
-    <img :src="hamburger" alt="hamburger" />
-    <img :src="logo" alt="logo" />
-    <img :src="cart" alt="cart" />
+  <div
+    class="bg-blackish flex justify-between items-center px-6 py-8 w-full max-w-[1110px] mx-auto md:px-10"
+  >
+    <div v-if="isSmallScreen" class="md:w-1/12">
+      <img :src="hamburger" alt="hamburger" />
+    </div>
+    <div class="md:w-10/12 mdd:w-auto">
+      <img :src="logo" alt="logo" class="" />
+    </div>
+    <div v-if="!isSmallScreen">
+      <Navigation />
+    </div>
+    <div class="md:w-1/12 mdd:w-auto">
+      <img :src="cart" alt="cart" class="" />
+    </div>
   </div>
 </template>
 
@@ -10,6 +21,8 @@
 import logo from "../../assets/shared/desktop/logo.svg";
 import cart from "../../assets/shared/desktop/icon-cart.svg";
 import hamburger from "../../assets/shared/tablet/icon-hamburger.svg";
+import { inject } from "vue";
+import Navigation from "./Navigation.vue";
 
 export default {
   name: "TheHeader",
@@ -18,7 +31,9 @@ export default {
       logo: logo,
       cart: cart,
       hamburger: hamburger,
+      isSmallScreen: inject("isSmallScreen"),
     };
   },
+  components: { Navigation },
 };
 </script>
