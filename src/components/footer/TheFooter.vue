@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-blackish px-6 pt-[52px] pb-[38px] text-center max-w-[1110px] mx-auto md:px-10 md:pt-[60px] md:pb-[46px]"
+    class="bg-blackish px-6 pt-[52px] pb-[38px] text-center max-w-[1110px] mx-auto md:px-10 md:pt-[60px] md:pb-[46px] dt:pt-[75px] relative customLine"
   >
     <div class="mdd:flex justify-between items-center mdd:mb-9">
       <div class="mb-[50px] mdd:mb-0">
@@ -10,12 +10,14 @@
         <Navigation />
       </div>
     </div>
-    <p class="text-white opacity-50 mb-[48px] md:text-left">{{ text }}</p>
-    <div class="md:flex justify-between items-center">
-      <div class="mb-12 md:mb-0">
+    <div class="gridFooter grid">
+      <p class="gridText text-white opacity-50 mb-[48px] md:text-left md:mb-[80px] mdd:mb-[56px]">
+        {{ text }}
+      </p>
+      <div class="gridCopyright mb-12 md:mb-0 md:text-left">
         <TheCopyright />
       </div>
-      <div>
+      <div class="gridSocial mdd:flex mdd:justify-end">
         <TheSocialBlock />
       </div>
     </div>
@@ -39,3 +41,65 @@ export default {
   components: { Navigation, TheCopyright, TheSocialBlock },
 };
 </script>
+
+<style scoped>
+
+.customLine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #D87D4A;
+}
+
+@media screen and (min-width: 768px) {
+
+    .customLine::before {
+        left: 2.5rem;
+        transform: none
+    }
+    ;
+  .gridFooter {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "text text"
+      "copy social";
+  }
+
+  .gridText {
+    grid-area: text;
+  }
+
+  .gridSocial {
+    grid-area: social;
+  }
+
+  .gridCopy {
+    grid-area: copy;
+  }
+}
+
+@media screen and (min-width: 821px) {
+  .gridFooter {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "text social"
+      "copy social";
+  }
+
+  .gridText {
+    grid-area: text;
+  }
+
+  .gridSocial {
+    grid-area: social;
+  }
+
+  .gridCopy {
+    grid-area: copy;
+  }
+}
+</style>
