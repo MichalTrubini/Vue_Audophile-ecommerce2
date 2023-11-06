@@ -19,4 +19,20 @@ export default {
 
 </script>
 
-<style></style>
+<style>
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+</style>
