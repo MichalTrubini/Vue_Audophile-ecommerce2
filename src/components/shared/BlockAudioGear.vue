@@ -30,7 +30,7 @@ import { inject, ref, Ref } from "vue";
 import { Size } from "../../types/enums";
 
 export default {
-  name: "AudioGear",
+  name: "BlockAudioGear",
   data() {
     return {
       imageMobile: imageMobile,

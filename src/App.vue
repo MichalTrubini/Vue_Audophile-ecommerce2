@@ -53,7 +53,7 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-weight: 700;
   text-transform: uppercase;
   color: rgb(0, 0, 0);
