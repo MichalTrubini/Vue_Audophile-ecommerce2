@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-blackish flex justify-between items-center px-6 py-8 w-full max-w-[1110px] mx-auto md:px-10"
+    class="bg-blackish flex justify-between items-center px-6 py-8 w-full max-w-[1110px] mx-auto md:px-10 dt:px-0"
   >
     <div v-if="isSmallScreen" class="md:w-1/12">
       <img :src="hamburger" alt="hamburger" />

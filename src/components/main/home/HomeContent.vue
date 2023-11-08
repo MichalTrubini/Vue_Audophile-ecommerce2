@@ -1,5 +1,7 @@
 <template>
-  <AudioGear />
+  <div class="px-6 md:px-10">
+    <AudioGear />
+  </div>
 </template>
 
 <script lang="ts">

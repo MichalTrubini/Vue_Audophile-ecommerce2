@@ -23,7 +23,8 @@ export default {
   },
   setup() {
     const isSmallScreen = ref(calculateIsSmallScreen());
-    let screenWidth = ref(window.innerWidth);
+    const screenWidth = ref(window.innerWidth);
+
     const handleResize = () => {
       isSmallScreen.value = calculateIsSmallScreen();
       screenWidth.value = window.innerWidth;
@@ -52,8 +53,10 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-h1 {
+h1, h2 {
   font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
 }
 
 p {
