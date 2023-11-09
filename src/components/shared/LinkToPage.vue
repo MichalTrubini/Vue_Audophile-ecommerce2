@@ -1,0 +1,44 @@
+<template>
+
+<router-link :to="link"><p class="uppercase py-[15px] px-[30px] font-bold tracking-[1px] inline-block" :class="{darkFull: type === 'darkFull', darkEmpty: type === 'darkEmpty'}">{{text}}</p></router-link>
+
+</template>
+
+<script lang="ts">
+export default {
+  name: "LinkToPage",
+  props: {
+    link: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
+
+<style scoped> 
+.darkFull {
+    color: #fff;
+    background-color: black;
+}
+
+.darkFull:hover {
+    cursor: pointer;
+    background-color: #4C4C4C;
+}
+
+.darkEmpty {
+    color: #000;
+    background-color: inherit;
+    border: 1px solid black;
+}
+
+</style>
