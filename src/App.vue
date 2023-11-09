@@ -1,8 +1,8 @@
 <template>
-  <header class="bg-blackish">
+  <header class="bg-blackish fixed w-full top-0 z-20">
     <TheHeader />
   </header>
-  <main>
+  <main class="relative z-10 mt-[89px]">
     <router-view></router-view>
   </main>
   <footer class="bg-blackish">

@@ -1,16 +1,17 @@
 <template>
-  <div class="max-w-[1110px] m-auto text-center lg:flex lg:flex-row-reverse lg:gap-[125px] lg:items-center">
+  <div class="dt:max-w-[1110px] dt:m-auto text-center lg:flex lg:flex-row-reverse lg:gap-[125px] lg:items-center lg:justify-between">
     <div class="lg:w-1/2">
       <img
         :src="
-          screnWidth < size.tabletBreakpoint
+          screenWidth < size.tabletBreakpoint
             ? imageMobile
-            : screnWidth >= size.tabletBreakpoint &&
-              screnWidth < size.desktopBreakpoint
+            : screenWidth >= size.tabletBreakpoint &&
+              screenWidth < size.desktopBreakpoint
             ? imageTablet
             : imageDesktop
         "
         alt="Audio Gear"
+        class="lg:ml-auto rounded-lg"
       />
     </div>
     <div class="lg:w-1/2">
@@ -37,7 +38,7 @@ export default {
       imageTablet: imageTablet,
       imageDesktop: imageDesktop,
       size: Size,
-      screnWidth: inject("screenWidth", ref(0)) as Ref<number>,
+      screenWidth: inject("screenWidth", ref(0)) as Ref<number>,
       header: "Bringing you the best audio gear",
       text: "Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.",
     };

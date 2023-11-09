@@ -1,6 +1,6 @@
 <template>
 
-<router-link :to="link"><p class="uppercase py-[15px] px-[30px] font-bold tracking-[1px] inline-block" :class="{darkFull: type === 'darkFull', darkEmpty: type === 'darkEmpty'}">{{text}}</p></router-link>
+<router-link :to="link"><p class="uppercase py-[15px] px-[30px] font-bold tracking-[1px] inline-block" :class="{darkFull: type === 'darkFull', darkEmpty: type === 'darkEmpty', lightFull: type === 'lightFull'}">{{text}}</p></router-link>
 
 </template>
 
@@ -35,10 +35,20 @@ export default {
     background-color: #4C4C4C;
 }
 
+.lightFull {
+    color: #fff;
+    background-color: #D87D4A;
+}   
 .darkEmpty {
     color: #000;
     background-color: inherit;
     border: 1px solid black;
+}
+
+.darkEmpty:hover 
+{
+    color: #fff;
+    background-color: black;
 }
 
 </style>
