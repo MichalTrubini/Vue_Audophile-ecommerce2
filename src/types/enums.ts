@@ -4,3 +4,7 @@ export enum Size {
     desktopBreakpoint = 1024,
     modalBreakpoint = 616
 }
+
+export enum Header {
+    height= 89,
+}

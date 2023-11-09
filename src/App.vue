@@ -24,10 +24,11 @@ export default {
   setup() {
     const isSmallScreen = ref(calculateIsSmallScreen());
     const screenWidth = ref(window.innerWidth);
-
+    const screenHeight = ref(window.innerHeight);
     const handleResize = () => {
       isSmallScreen.value = calculateIsSmallScreen();
       screenWidth.value = window.innerWidth;
+      screenHeight.value = window.innerHeight;
     };
 
     onBeforeMount(() => {
@@ -40,6 +41,7 @@ export default {
 
     provide("isSmallScreen", isSmallScreen);
     provide("screenWidth", screenWidth);
+    provide("screenHeight", screenHeight);
     return {
       isSmallScreen,
       screenWidth
