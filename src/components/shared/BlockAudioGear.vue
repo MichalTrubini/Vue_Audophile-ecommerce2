@@ -15,7 +15,7 @@
       />
     </div>
     <div class="lg:w-1/2">
-      <h2 class="tracking-[1px] text-[28px] my-8 md:mt-12 md:text-[40px] lg:tracking-[1.5px] lg:leading-[44px] lg:mt-0 lg:text-left dt:pr-5">
+      <h2 class="tracking-[1px] text-[28px] my-8 md:mt-12 md:text-[40px] md:max-w-[570px] md:mx-auto lg:tracking-[1.5px] lg:leading-[44px] lg:mt-0 lg:text-left dt:pr-5">
         Bringing you the <span class="text-brick">best</span> audio gear
       </h2>
       <p class="md:px-[60px] lg:px-0 lg:text-left">{{ text }}</p>
