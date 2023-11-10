@@ -1,5 +1,5 @@
 <template>
-  <div class="md:flex md:items-center md:gap-[69px] dt:max-w-[1110px] dt:mx-auto dt:gap-[125px]">
+  <div class="maxLimit md:flex md:items-center md:gap-[69px] md:mb-[120px] dt:gap-[125px]">
     <div class="md:w-[37%] lg:w-[40%] dt:w-[49%]">
       <img
         :src="

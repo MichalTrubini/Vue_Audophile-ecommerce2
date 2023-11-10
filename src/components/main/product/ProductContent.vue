@@ -1,6 +1,8 @@
 <template>
   <div class="pagePadding">
-    <ProductSingle :productData="productData" />
+    <div v-if="productData">
+      <ProductSingle :productData="productData" />
+    </div>
   </div>
   <div class="pagePadding mb-[120px] dt:mb-[160px]">
     <BlockCategories />
@@ -14,7 +16,7 @@
 import BlockAudioGearVue from "../../shared/BlockAudioGear.vue";
 import BlockCategories from "../../shared/BlockCategories.vue";
 import ProductSingle from "./ProductSingle.vue";
-
+import { Product } from "../../../types/types";
 export default {
   name: "ProductPage",
   components: {
@@ -24,9 +26,9 @@ export default {
   },
   props: {
     productData: {
-      type: Object,
+      type: Object as () => Product | undefined,
       required: true,
     },
-  }
+  },
 };
 </script>

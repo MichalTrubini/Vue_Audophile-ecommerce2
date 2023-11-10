@@ -2,12 +2,14 @@
   <GoBack />
   <TopInfo :productData="productData" />
   <Features :productData="productData" />
+  <Gallery :productData="productData" />
 </template>
 
 <script lang="ts">
 import GoBack from "./partials/GoBack.vue";
 import TopInfo from "./partials/TopInfo.vue";
 import Features from "./partials/Features.vue";
+import Gallery from "./partials/Gallery.vue";
 
 export default {
   name: "ProductPage",
@@ -15,6 +17,7 @@ export default {
     GoBack,
     TopInfo,
     Features,
+    Gallery,
   },
   props: {
     productData: {

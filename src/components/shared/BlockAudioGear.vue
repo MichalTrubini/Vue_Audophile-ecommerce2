@@ -1,5 +1,5 @@
 <template>
-  <div class="dt:max-w-[1110px] dt:m-auto text-center lg:flex lg:flex-row-reverse lg:gap-[125px] lg:items-center lg:justify-between">
+  <div class="maxLimit text-center lg:flex lg:flex-row-reverse lg:gap-[125px] lg:items-center lg:justify-between">
     <div class="lg:w-1/2">
       <img
         :src="

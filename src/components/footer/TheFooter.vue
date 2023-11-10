@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-blackish px-6 pt-[52px] pb-[38px] text-center dt:max-w-[1110px] dt:mx-auto md:px-10 md:pt-[60px] md:pb-[46px] dt:pt-[75px] dt:px-0 relative customLine"
+    class="maxLimit pagePadding bg-blackish pt-[52px] pb-[38px] text-center md:pt-[60px] md:pb-[46px] dt:pt-[75px] lg:px-0 relative customLine"
   >
     <div class="mdd:flex justify-between items-center mdd:mb-9">
       <div class="mb-[50px] mdd:mb-0">

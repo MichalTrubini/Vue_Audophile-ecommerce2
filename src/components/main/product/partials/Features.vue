@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-[88px]">
+  <div class="maxLimit mb-[88px]">
     <div class="mb-[88px]">
       <h3 class="mb-6 text-2xl tracking-[0.875px]">Features</h3>
       <div class="flex flex-col gap-4">

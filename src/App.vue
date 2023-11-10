@@ -44,7 +44,7 @@ export default {
     provide("screenHeight", screenHeight);
     return {
       isSmallScreen,
-      screenWidth
+      screenWidth,
     };
   },
 };
@@ -55,7 +55,9 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 700;
   text-transform: uppercase;
   color: rgb(0, 0, 0);
@@ -69,18 +71,27 @@ p {
 }
 
 .pagePadding {
-  padding: 0 1.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
   .pagePadding {
-    padding: 0 2.5rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1180px) {
   .pagePadding {
-    padding: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .maxLimit {
+    max-width: 1110px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>
