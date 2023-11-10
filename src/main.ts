@@ -4,12 +4,14 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from './views/HomePage.vue'
 import CategoryPage from './views/CategoryPage.vue'
+import ProductPageVue from './views/ProductPage.vue'
 const app = createApp(App)
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: HomePage },
         { path: '/category/:id', component: CategoryPage },
+        { path: '/product/:id', component: ProductPageVue },
     ],
     scrollBehavior(_to, _from, savedPosition) {
         if (savedPosition) {

@@ -10,7 +10,7 @@
           : imageDesktop
       "
       :alt="title"
-      class="mb-6 md:mb-[52px] lg:mb-0"
+      class="mb-6 rounded-lg md:mb-[52px] lg:mb-0"
     />
   </div>
   <div class="lg:w-1/2">
