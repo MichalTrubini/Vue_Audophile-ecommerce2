@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-blackish flex justify-between items-center px-6  w-full dt:max-w-[1110px] dt:mx-auto md:px-10 dt:px-0"
+    class="bg-blackish flex justify-between items-center px-6  w-full border-b-[1px] border-borderHeader dt:max-w-[1110px] dt:mx-auto md:px-10 dt:px-0"
     :style="{height: headerHeight + 'px'}"
   >
     <div v-if="isSmallScreen" class="md:w-1/12">

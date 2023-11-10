@@ -1,5 +1,5 @@
 <template>
-  <CategoryContent :categoryData="categoryData" />
+  <CategoryContent :categoryData="categoryData" :pageTitle="category"/>
 </template>
 
 <script lang="ts">
@@ -13,15 +13,16 @@ export default {
     CategoryContent,
   },
   computed: {
-    categoryData(): ProductCategory | undefined {
-      return this.data.find(
-        (category: ProductCategory) => category.category === this.$route.params.id
+    categoryData(): ProductCategory[] | undefined {
+      return this.data.filter(
+        (item: ProductCategory) => item.category === this.$route.params.id
       );
     },
   },
   data() {
     return {
       data: categoryJSONData,
+      category: this.$route.params.id as string,
     };
   },
 };

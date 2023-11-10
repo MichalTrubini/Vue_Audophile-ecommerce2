@@ -8,7 +8,8 @@ export default {
         lightBrick:"#FBAF85",
         blackish: "#101010",
         gray: "#F1F1F1",
-        whitish: "#FAFAFA"
+        whitish: "#FAFAFA",
+        borderHeader: "rgba(255, 255, 255, 0.1)",
       },
       fontSize: {
         mobil: "15px"
