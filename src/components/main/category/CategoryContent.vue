@@ -3,14 +3,14 @@
     <PageTitle :title="pageTitle" />
     <div
       v-if="categoryData"
-      class="pagePadding mt-[64px] mb-[172px] md:mt-[120px] dt:mt-[160px] flex flex-col gap-[120px] md:mb-[120px] dt:mb-[240px]"
+      class="pagePadding mt-[64px] mb-[172px] md:mt-[120px] dt:mt-[160px] flex flex-col gap-[120px] md:mb-[120px] dt:mb-[240px] lg:gap-[160px] dt:max-w-[1110px] dt:mx-auto dt:px-0"
     >
-      <div v-for="item in categoryData" :key="item.id" class="text-center">
+      <div v-for="item in categoryData" :key="item.id" class="text-center lg:flex lg:text-left lg:gap-[125px] flexFix items-center">
         <CategoryProduct
           :id="item.id"
           :title="item.title"
           :description="item.description"
-          :new="item.new"
+          :isNew="item.new"
           :imageMobile="item.categoryImage.mobile"
           :imageTablet="item.categoryImage.tablet"
           :imageDesktop="item.categoryImage.desktop"
@@ -55,3 +55,13 @@ export default {
   }
 };
 </script>
+
+<style  scoped>
+
+@media screen and (min-width: 1024px) {
+  .flexFix:nth-child(2n) {
+    flex-direction: row-reverse;
+  }
+}
+
+</style>

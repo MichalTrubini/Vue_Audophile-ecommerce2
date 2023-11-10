@@ -31,18 +31,14 @@ export default {
 </script>
 
 <style>
-.pagePadding {
-  padding: 0 1.5rem;
-}
+
 
 .colorFix {
   background: linear-gradient(178deg, #1c1c1c, #1a1a1a);
 }
 
 @media screen and (min-width: 768px) {
-  .pagePadding {
-    padding: 0 2.5rem;
-  }
+
 
   .colorFix {
     background: #191919;

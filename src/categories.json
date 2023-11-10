@@ -5,7 +5,7 @@
     "new": true,
     "category": "earphones",
     "categoryImage": {
-      "mobile": "../../assets/product-yx1-earphones/mobile/image-category-page-preview.jpg",
+      "mobile": "/assets/product-yx1-earphones/mobile/image-category-page-preview.jpg",
       "tablet": "/assets/product-yx1-earphones/tablet/image-category-page-preview.jpg",
       "desktop": "/assets/product-yx1-earphones/desktop/image-category-page-preview.jpg"
     },
@@ -14,10 +14,10 @@
   {
     "id": 2,
     "title": "XX59 Headphones",
-    "new": false,
+    "new": true,
     "category": "headphones",
     "categoryImage": {
-        "mobile": "src/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg",
+        "mobile": "/assets/product-xx59-headphones/mobile/image-category-page-preview.jpg",
         "tablet": "/assets/product-xx59-headphones/tablet/image-category-page-preview.jpg",
         "desktop": "/assets/product-xx59-headphones/desktop/image-category-page-preview.jpg"
       },

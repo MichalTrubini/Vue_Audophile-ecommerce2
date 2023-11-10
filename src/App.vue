@@ -67,4 +67,20 @@ p {
   color: rgba(0, 0, 0, 0.5);
   line-height: 25px;
 }
+
+.pagePadding {
+  padding: 0 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .pagePadding {
+    padding: 0 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .pagePadding {
+    padding: 0;
+  }
+}
 </style>
