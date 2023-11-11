@@ -4,7 +4,13 @@
   >
     <div class="mdd:flex justify-between items-center mdd:mb-9">
       <div class="mb-[50px] mdd:mb-0">
-        <img :src="logo" alt="audiophile logo" class="mx-auto md:mx-0" />
+        <router-link to="/">
+          <img
+            :src="logo"
+            alt="audiophile logo"
+            class="mx-auto md:mx-0 hover:cursor-pointer"
+          />
+        </router-link>
       </div>
       <div class="mb-[48px] md:mb-8 mdd:mb-0">
         <SiteNavigation />

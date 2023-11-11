@@ -45,7 +45,7 @@
           <p class="absolute top-0 right-0 h-full flex items-center px-4">+</p>
         </div>
         <button
-          class="w-[160px] border-none bg-brick text-white uppercase tracking-[1px] text-[13px] font-bold"
+          class="w-[160px] border-none bg-brick text-white uppercase tracking-[1px] text-[13px] font-bold hover:bg-lightBrick"
         >
           Add to cart
         </button>

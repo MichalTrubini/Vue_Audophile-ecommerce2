@@ -38,7 +38,11 @@ export default {
 .lightFull {
     color: #fff;
     background-color: #D87D4A;
-}   
+}
+
+.lightFull:hover {
+    background-color: #FBAF85;
+}
 .darkEmpty {
     color: #000;
     background-color: inherit;

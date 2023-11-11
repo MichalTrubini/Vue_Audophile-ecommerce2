@@ -10,6 +10,7 @@
   <div class="pagePadding mb-[120px] dt:mb-[160px]">
     <BlockAudioGearVue />
   </div>
+
 </template>
 
 <script lang="ts">
@@ -17,6 +18,7 @@ import BlockAudioGearVue from "../../shared/BlockAudioGear.vue";
 import BlockCategories from "../../shared/BlockCategories.vue";
 import ProductSingle from "./ProductSingle.vue";
 import { Product } from "../../../types/types";
+
 export default {
   name: "ProductPage",
   components: {

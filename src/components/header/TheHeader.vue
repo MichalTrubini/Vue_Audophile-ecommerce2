@@ -7,13 +7,15 @@
       <img :src="hamburger" alt="hamburger" />
     </div>
     <div class="md:w-10/12 mdd:w-auto">
-      <img :src="logo" alt="logo" class="" />
+      <router-link to="/">
+        <img :src="logo" alt="logo" class="hover:cursor-pointer" />
+      </router-link>
     </div>
     <div v-if="!isSmallScreen">
       <SiteNavigation />
     </div>
     <div class="md:w-1/12 mdd:w-auto">
-      <img :src="cart" alt="cart" class="" />
+      <img :src="cart" alt="cart" class="hover:cursor-pointer" />
     </div>
   </div>
 </template>
