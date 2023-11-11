@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-whitish">
+  <div class="bg-whitish flex flex-col gap-8">
     <CheckoutForm />
     <CheckoutSummary />
   </div>
