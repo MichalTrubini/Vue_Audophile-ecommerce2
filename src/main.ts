@@ -10,8 +10,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: HomePage },
-        { path: '/category/:id', component: CategoryPage },
-        { path: '/product/:id', component: ProductPageVue },
+        { path: '/category/:name', component: CategoryPage },
+        { path: '/product/:slug', component: ProductPageVue },
     ],
     scrollBehavior(_to, _from, savedPosition) {
         if (savedPosition) {

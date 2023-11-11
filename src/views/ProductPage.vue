@@ -14,7 +14,7 @@ export default {
   },
   computed: {
     productData(): Product | undefined {
-      return productsData.find((item: Product) => String(item.id) === this.$route.params.id);
+      return productsData.find((item: Product) => String(item.slug) === this.$route.params.slug);
     },
   }
 };

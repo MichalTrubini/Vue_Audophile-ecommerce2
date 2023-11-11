@@ -1,6 +1,7 @@
 export interface ProductCategory {
   id: number;
   title: string;
+  slug: string;
   new: boolean;
   category: string;
   categoryImage: {

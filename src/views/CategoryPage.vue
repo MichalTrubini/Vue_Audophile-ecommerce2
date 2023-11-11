@@ -15,15 +15,20 @@ export default {
   computed: {
     categoryData(): ProductCategory[] | undefined {
       return this.data.filter(
-        (item: ProductCategory) => item.category === this.$route.params.id
+        (item: ProductCategory) => item.category === this.$route.params.name
       );
     },
   },
   data() {
     return {
       data: categoryJSONData,
-      category: this.$route.params.id as string,
+      category: this.$route.params.name as string,
     };
+  },
+  watch: {
+    $route(to, _from) {
+      this.category = to.params.name;
+    },
   },
 };
 </script>

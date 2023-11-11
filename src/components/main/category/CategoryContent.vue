@@ -7,13 +7,7 @@
     >
       <div v-for="item in categoryData" :key="item.id" class="text-center lg:flex lg:text-left lg:gap-[125px] flexFix items-center">
         <CategoryProduct
-          :id="item.id"
-          :title="item.title"
-          :description="item.description"
-          :isNew="item.new"
-          :imageMobile="item.categoryImage.mobile"
-          :imageTablet="item.categoryImage.tablet"
-          :imageDesktop="item.categoryImage.desktop"
+          :categoryData="item"
         />
       </div>
     </div>

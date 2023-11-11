@@ -3,19 +3,19 @@
     <img
       :src="
         screenWidth < size.tabletBreakpoint
-          ? imageMobile
+          ? categoryData?.categoryImage.mobile
           : screenWidth >= size.tabletBreakpoint &&
             screenWidth < size.desktopBreakpoint
-          ? imageTablet
-          : imageDesktop
+          ? categoryData?.categoryImage.tablet
+          : categoryData?.categoryImage.desktop
       "
-      :alt="title"
+      :alt="categoryData?.title"
       class="mb-6 rounded-lg md:mb-[52px] lg:mb-0"
     />
   </div>
   <div class="lg:w-1/2">
     <p
-      v-if="isNew"
+      v-if="categoryData?.new"
       class="mb-6 text-brick uppercase tracking-[10px] text-[14px]"
     >
       new product
@@ -23,11 +23,11 @@
     <h2
       class="text-[28px] tracking-[1px] px-8 leading-[32px] mb-6 md:text-[40px] md:tracking-[1.4px] md:leading-[44px] md:w-[570px] md:mx-auto md:px-[100px] md:mb-8 lg:w-auto lg:px-0"
     >
-      {{ title }}
+      {{ categoryData?.title }}
     </h2>
-    <p class="mb-6 md:w-[570px] md:mx-auto lg:w-auto">{{ description }}</p>
+    <p class="mb-6 md:w-[570px] md:mx-auto lg:w-auto">{{ categoryData?.description }}</p>
     <LinkToPage
-      :link="'/product/' + id"
+      :link="'/product/' + categoryData?.slug"
       :text="'see product'"
       :type="'lightFull'"
     />
@@ -38,38 +38,15 @@
 import LinkToPage from "../../shared/LinkToPage.vue";
 import { inject, ref, Ref } from "vue";
 import { Size } from "../../../types/enums";
+import { ProductCategory } from "../../../types/types";
 export default {
   name: "CategoryProduct",
   components: {
     LinkToPage,
   },
   props: {
-    id: {
-      type: Number,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    isNew: {
-      type: Boolean,
-      required: true,
-    },
-    imageMobile: {
-      type: String,
-      required: true,
-    },
-    imageTablet: {
-      type: String,
-      required: true,
-    },
-    imageDesktop: {
-      type: String,
+    categoryData: {
+      type: Object as () => ProductCategory | undefined,
       required: true,
     },
   },
