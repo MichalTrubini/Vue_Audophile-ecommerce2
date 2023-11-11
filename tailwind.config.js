@@ -10,6 +10,7 @@ export default {
         gray: "#F1F1F1",
         whitish: "#FAFAFA",
         borderHeader: "rgba(255, 255, 255, 0.1)",
+        formInputBorder: "#CFCFCF",
       },
       fontSize: {
         mobil: "15px"
