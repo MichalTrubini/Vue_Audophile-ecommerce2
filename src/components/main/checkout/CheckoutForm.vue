@@ -29,6 +29,7 @@ export default {
         zip: "",
         city: "",
         country: "",
+        paymentMethod: "",
         eMoneyNumber: null as number | null,
         eMoneyPin: null as number | null,
       },
@@ -40,6 +41,7 @@ export default {
         zip: false,
         city: false,
         country: false,
+        paymentMethod: false,
         eMoneyNumber: false,
         eMoneyPin: false,
       },
@@ -51,7 +53,7 @@ export default {
     },
     handleSubmitForm() {
       for (let key in this.formData) {
-        if (this.formData[key as keyof typeof this.formData] === "") {
+        if (this.formData[key as keyof typeof this.formData] === "" || this.formData[key as keyof typeof this.formData] === null) {
           this.formDataValidation[key as keyof typeof this.formDataValidation] =
             true;
         } else {

@@ -1,32 +1,32 @@
 <template>
-  <div class="relative">
+  <div class="relative flex flex-row-reverse items-center justify-end gap-4 w-full border border-formInputBorder py-[18px] px-4 rounded-xl">
     <label
-      :for="name"
-      class="text-[12px] font-bold tracking-[-0.2px] inline-block mb-2"
+      :for="forID"
+      class="text-[14px] font-bold tracking-[-0.2px]"
       >{{ label }}</label
     >
     <input
       :type="type"
-      :id="name"
+      :name="name"
+      :id="forID"
+      :value="value"
       @input="userInput"
       @blur="validateInput"
-      class="w-full border border-formInputBorder py-[18px] px-[24px] rounded-xl"
-      :class="{ isError: isEmpty || isInvalidEmail || (isEmptyOnSubmit && notBlurred) }"
+      :class="{
+        isError: isEmpty || (isEmptyOnSubmit && notBlurred),
+      }"
     />
     <p
-      v-if="isInvalidEmail"
+      v-if="isEmpty || (isEmptyOnSubmit && notBlurred)"
       class="absolute top-2 right-0 text-error font-bold text-xs"
     >
-      Wrong email format!
+      Can't be empty!
     </p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
-const regex =
-  /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
 
 export default defineComponent({
   name: "InputElement",
@@ -47,11 +47,18 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    forID: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
       isEmpty: false,
-      isInvalidEmail: false,
       notBlurred: true,
     };
   },
@@ -67,15 +74,6 @@ export default defineComponent({
       } else {
         this.isEmpty = false;
         this.notBlurred = false;
-      }
-      if (
-        this.type === "email" &&
-        inputValue !== "" &&
-        regex.test(inputValue) === false
-      ) {
-        this.isInvalidEmail = true;
-      } else {
-        this.isInvalidEmail = false;
       }
     },
   },

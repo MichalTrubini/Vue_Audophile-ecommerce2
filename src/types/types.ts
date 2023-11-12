@@ -73,6 +73,7 @@ export interface FormData {
   zip: string;
   city: string;
   country: string;
+  paymentMethod: string;
   eMoneyNumber: number | null;
   eMoneyPin: number | null;
 }
