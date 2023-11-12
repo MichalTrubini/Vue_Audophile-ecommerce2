@@ -14,6 +14,7 @@
           :label="'Name'"
           :type="'text'"
           v-model.trim="formData.name"
+          :isEmptyOnSubmit="formDataValidation.name"
         />
         <InputElement
           :label="'Email Address'"
@@ -60,6 +61,12 @@ import InputElement from "./InputElement.vue";
 export default {
   name: "Form",
   components: { InputElement },
+  props: {
+    formDataValidation: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       formData: {
@@ -78,7 +85,7 @@ export default {
   watch: {
     formData: {
       handler(newValue) {
-        console.log("formData changed:", newValue);
+        this.$emit('updateFormData', newValue);
       },
       deep: true,
     },
