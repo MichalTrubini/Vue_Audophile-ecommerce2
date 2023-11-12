@@ -1,27 +1,21 @@
 <template>
-  <div class="relative flex flex-row-reverse items-center justify-end gap-4 w-full border border-formInputBorder py-[18px] px-4 rounded-xl">
-    <label
-      :for="forID"
-      class="text-[14px] font-bold tracking-[-0.2px]"
-      >{{ label }}</label
-    >
+  <div
+    class="relative flex flex-row-reverse items-center justify-end gap-4 w-full border border-formInputBorder py-[18px] px-4 rounded-xl"
+    :class="{
+      isError: isEmptyOnSubmit && isNotSelected,
+    }"
+  >
+    <label :for="forID" class="text-[14px] font-bold tracking-[-0.2px]">{{
+      label
+    }}</label>
     <input
       :type="type"
       :name="name"
       :id="forID"
       :value="value"
       @input="userInput"
-      @blur="validateInput"
-      :class="{
-        isError: isEmpty || (isEmptyOnSubmit && notBlurred),
-      }"
+      @click="validateInput"
     />
-    <p
-      v-if="isEmpty || (isEmptyOnSubmit && notBlurred)"
-      class="absolute top-2 right-0 text-error font-bold text-xs"
-    >
-      Can't be empty!
-    </p>
   </div>
 </template>
 
@@ -55,10 +49,13 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    isNotSelected: {
+      type: Boolean,
+      required: true,
+    },
   },
   data() {
     return {
-      isEmpty: false,
       notBlurred: true,
     };
   },
@@ -67,14 +64,8 @@ export default defineComponent({
     userInput(event: Event) {
       this.$emit("update:modelValue", (event.target as HTMLInputElement).value);
     },
-    validateInput(event: Event) {
-      const inputValue = (event.target as HTMLInputElement).value.trim();
-      if (inputValue === "") {
-        this.isEmpty = true;
-      } else {
-        this.isEmpty = false;
-        this.notBlurred = false;
-      }
+    validateInput() {
+      //this.isNotSelected = false;
     },
   },
 });

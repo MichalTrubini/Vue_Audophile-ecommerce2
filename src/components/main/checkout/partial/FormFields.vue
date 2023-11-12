@@ -75,9 +75,9 @@
         payment details
       </h2>
       <div class="mb-8 md:flex md:justify-between md:items-start md:gap-4">
-        <div class="relative">
+        <div class="relative md:w-1/2">
           <p
-            class="text-[12px] font-bold tracking-[-0.2px] inline-block mb-2 text-blackish md:w-1/2"
+            class="text-[12px] font-bold tracking-[-0.2px] inline-block mb-2 text-blackish "
           >
             Payment Method
           </p>
@@ -91,6 +91,8 @@
             :forID="'eMoney'"
             :value="'emoney'"
             v-model="formData.paymentMethod"
+            :isEmptyOnSubmit="formDataValidation.paymentMethod"
+            :isNotSelected="isNotSelected"
           />
           <SelectionElement
             :name="'payment'"
@@ -99,6 +101,8 @@
             :forID="'COD'"
             :value="'cod'"
             v-model="formData.paymentMethod"
+            :isEmptyOnSubmit="formDataValidation.paymentMethod"
+            :isNotSelected="isNotSelected"
           />
         </div>
       </div>
@@ -149,6 +153,7 @@ export default {
         eMoneyNumber: "",
         eMoneyPin: "",
       },
+      isNotSelected: true
     };
   },
   watch: {
