@@ -8,6 +8,7 @@
     <input
       :type="type"
       id="name"
+      @input="userInput"
       class="w-full border border-formInputBorder py-[18px] px-[24px] rounded-xl"
     />
   </div>
@@ -24,6 +25,20 @@ export default {
     type: {
       type: String,
       required: true,
+    },
+    value: {
+      type: String,
+      default: "",
+    },
+    modelValue: {
+      type: String,
+      default: "",
+    }
+  },
+  emits: ['update:modelValue'],
+  methods: {
+    userInput(event) {
+      this.$emit('update:modelValue', event.target.value);
     },
   },
 };

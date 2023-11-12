@@ -40,13 +40,11 @@
         <p class="uppercase text-[15px]">grand total</p>
         <p class="font-bold text-brick">$ 5,446</p>
       </div>
-      <div class="bg-brick py-[15px]">
-        <p
-          class="text-white uppercase text-center text-[13px] tracking-[1px] font-bold"
-        >
-          continue & pay
-        </p>
-      </div>
+      <button
+        class="bg-brick py-[15px] text-white uppercase text-center text-[13px] tracking-[1px] font-bold inline-block w-full"
+      >
+        continue & pay
+      </button>
     </div>
   </div>
 </template>
