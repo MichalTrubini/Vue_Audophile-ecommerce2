@@ -1,6 +1,6 @@
 <template>
   <form
-    class="flex flex-col gap-8 lg:flex-row lg:gap-[30px] lg:justify-between lg:items-start"
+    class="form grid grid-cols-1 gap-8 lg:gap-x-[30px] lg:items-start"
     @submit.prevent="handleSubmitForm"
   >
     <FormFields
@@ -66,3 +66,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+@media (min-width: 1024px) {
+  .form {
+    grid-template-columns: 1fr 350px;
+  }
+}
+</style>

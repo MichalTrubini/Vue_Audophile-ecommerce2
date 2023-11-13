@@ -81,7 +81,7 @@
           >
             Payment Method
           </p>
-          <p v-if="formDataValidation.paymentMethod" class="absolute top-[6px] right-0 text-error font-bold text-xs">Must select one!</p>
+          <p v-if="formDataValidation.paymentMethod && isNotSelected" class="absolute top-[6px] right-0 text-error font-bold text-xs">Must select one!</p>
         </div>
         <div class="flex flex-col gap-4 md:w-1/2">
           <SelectionElement
@@ -93,6 +93,7 @@
             v-model="formData.paymentMethod"
             :isEmptyOnSubmit="formDataValidation.paymentMethod"
             :isNotSelected="isNotSelected"
+            @isError="isError"
           />
           <SelectionElement
             :name="'payment'"
@@ -163,6 +164,11 @@ export default {
       },
       deep: true,
     },
+  },
+  methods: {
+    isError(value: boolean) {
+      this.isNotSelected = value;
+    }
   },
 };
 </script>

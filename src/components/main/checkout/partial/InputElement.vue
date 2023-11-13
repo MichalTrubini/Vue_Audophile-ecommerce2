@@ -14,8 +14,14 @@
       :class="{ isError: isEmpty || isInvalidEmail || (isEmptyOnSubmit && notBlurred) }"
     />
     <p
-      v-if="isInvalidEmail"
-      class="absolute top-2 right-0 text-error font-bold text-xs"
+      v-if="isEmpty || (isEmptyOnSubmit && notBlurred)"
+      class="absolute top-[7px] right-0 text-error font-bold text-xs"
+    >
+      Can't be empty!
+    </p>
+    <p
+      v-if="isInvalidEmail && !isEmpty "
+      class="absolute top-[7px] right-0 text-error font-bold text-xs"
     >
       Wrong email format!
     </p>

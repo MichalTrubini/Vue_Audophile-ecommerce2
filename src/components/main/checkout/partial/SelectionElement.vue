@@ -59,13 +59,14 @@ export default defineComponent({
       notBlurred: true,
     };
   },
-  emits: ["update:modelValue"],
+  emits: ["update:modelValue", "isError"],
   methods: {
     userInput(event: Event) {
       this.$emit("update:modelValue", (event.target as HTMLInputElement).value);
     },
     validateInput() {
       //this.isNotSelected = false;
+      this.$emit("isError", false);
     },
   },
 });
