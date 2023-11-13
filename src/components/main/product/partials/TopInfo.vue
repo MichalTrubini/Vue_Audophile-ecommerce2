@@ -34,15 +34,14 @@
       </p>
       <div class="mb-[88px] flex gap-4 md:mb-0">
         <div class="relative">
-          <p class="absolute top-0 left-0 h-full flex items-center px-4">-</p>
+          <p class="absolute top-0 left-0 h-full flex items-center px-4 text-[16px] font-bold hover:cursor-pointer hover:text-brick" @click="decreaseQty">-</p>
           <input
             type="number"
-            class="w-[120px] border-none bg-gray text-center py-[15px] font-bold text-black"
-            v-model="productData.quantity"
-            min="1"
-            placeholder="1"
+            class="w-[120px] border-none bg-gray text-center py-[15px] font-bold text-black focus:outline-none"
+            :value="quantity"
+            readonly
           />
-          <p class="absolute top-0 right-0 h-full flex items-center px-4">+</p>
+          <p class="absolute top-0 right-0 h-full flex items-center px-4 text-[16px] font-bold hover:cursor-pointer hover:text-brick" @click="increaseQty">+</p>
         </div>
         <button
           class="w-[160px] border-none bg-brick text-white uppercase tracking-[1px] text-[13px] font-bold hover:bg-lightBrick"
@@ -69,7 +68,18 @@ export default {
     return {
       screenWidth: inject("screenWidth", ref(0)) as Ref<number>,
       size: Size,
+      quantity: 1,
     };
+  },
+  methods: {
+    increaseQty() {
+      this.quantity++;
+    },
+    decreaseQty() {
+      if (this.quantity > 1) {
+        this.quantity--;
+      }
+    },
   },
 };
 </script>

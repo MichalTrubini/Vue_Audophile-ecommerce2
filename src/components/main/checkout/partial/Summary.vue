@@ -41,7 +41,7 @@
         <p class="font-bold text-brick">$ 5,446</p>
       </div>
       <button
-        class="bg-brick py-[15px] text-white uppercase text-center text-[13px] tracking-[1px] font-bold inline-block w-full"
+        class="bg-brick py-[15px] text-white uppercase text-center text-[13px] tracking-[1px] font-bold inline-block w-full hover:bg-lightBrick"
       >
         continue & pay
       </button>
