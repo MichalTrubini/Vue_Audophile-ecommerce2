@@ -1,7 +1,7 @@
 <template>
-  <div class="fixed top-[114px] z-40 px-6 mx-auto w-full">
+  <div class="maxLimit fixed top-[114px] z-40 px-6 left-[50%] transform translate-x-[-50%] w-full md:px-10 dt:px-0">
     <div
-      class="bg-white px-7 py-8 flex flex-col items-center justify-center rounded-lg"
+      class="bg-white px-7 py-8 flex flex-col items-center justify-center rounded-lg max-w-[377px] ml-auto"
     >
       <div class="flex justify-between w-full items-center mb-8">
         <p class="uppercase font-bold tracking-[1.3px] text-lg">

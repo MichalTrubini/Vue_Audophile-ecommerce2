@@ -14,7 +14,7 @@
     <div v-if="!isSmallScreen">
       <SiteNavigation />
     </div>
-    <div class="md:w-1/12 mdd:w-auto relative" @click="toggleCart">
+    <div class="mdd:w-auto relative md:w-[23px]" @click="toggleCart">
       <img :src="cart" alt="cart" class="hover:cursor-pointer" />
       <div
         v-if="cartProductsQty > 0"
@@ -24,7 +24,7 @@
       </div>
     </div>
     <teleport to="body">
-      <div v-if="showCart">
+      <div v-if="showCart" >
         <Cart @toggleCart="toggleCart"/>
         <div class="fixed z-30 top-0 left-0 right-0 bottom-0 bg-overlay" @click="toggleCart" ></div>
       </div>
