@@ -1,6 +1,6 @@
 <template>
 
-<router-link :to="link"><p class="uppercase py-[15px] px-[30px] font-bold tracking-[1px] inline-block" :class="{darkFull: type === 'darkFull', darkEmpty: type === 'darkEmpty', lightFull: type === 'lightFull'}">{{text}}</p></router-link>
+<router-link :to="link"><p class="uppercase py-[15px] px-[30px] font-bold tracking-[1px] inline-block" :class="{darkFull: type === 'darkFull', darkEmpty: type === 'darkEmpty', lightFull: type === 'lightFull', fullWidth: fullWidth}">{{text}}</p></router-link>
 
 </template>
 
@@ -19,6 +19,10 @@ export default {
     type: {
       type: String,
       required: true,
+    },
+    fullWidth: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -53,6 +57,11 @@ export default {
 {
     color: #fff;
     background-color: black;
+}
+
+.fullWidth {
+  width: 100%;
+  text-align: center;
 }
 
 </style>

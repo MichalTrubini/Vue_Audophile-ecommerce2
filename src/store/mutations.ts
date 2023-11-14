@@ -14,7 +14,21 @@ const mutations: MutationTree<RootState> = {
       state.cart.push(payload);
     }
   },
-  // Add other mutations as needed
+  emptyCart(state: RootState) {
+    state.cart = [];
+  },
+  increaseProductQuantity(state: RootState, productId: number) {
+    const index = state.cart.findIndex((item) => item.id === productId);
+    if (index !== -1) {
+      state.cart[index].quantity++;
+    }
+  },
+  decreaseProductQuantity(state: RootState, productId: number) {
+    const index = state.cart.findIndex((item) => item.id === productId);
+    if (index !== -1) {
+      if (state.cart[index].quantity > 1) state.cart[index].quantity--;
+    }
+  }
 };
 
 export default mutations;

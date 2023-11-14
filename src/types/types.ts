@@ -80,8 +80,9 @@ export interface FormData {
 
 export interface cartItem {
   id: number,
+  abbrev: string,
   productTitle: string,
   productPrice: string,
   cartImage: string,
-  quantity: string,
+  quantity: number,
 }

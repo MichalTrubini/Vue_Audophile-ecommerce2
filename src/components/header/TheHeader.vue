@@ -14,12 +14,21 @@
     <div v-if="!isSmallScreen">
       <SiteNavigation />
     </div>
-    <div class="md:w-1/12 mdd:w-auto relative">
+    <div class="md:w-1/12 mdd:w-auto relative" @click="toggleCart">
       <img :src="cart" alt="cart" class="hover:cursor-pointer" />
-      <div class="absolute top-[10px] right-[-10px] z-10 bg-brick rounded-full flex justify-center items-center px-[7px] py-[3px]">
-      <p class=" text-white text-xs">{{cartItemsQty}}</p>
+      <div
+        v-if="cartProductsQty > 0"
+        class="absolute top-[10px] right-[-10px] z-10 bg-brick rounded-full flex justify-center items-center px-[7px] py-[3px]"
+      >
+        <p class="text-white text-xs">{{ cartProductsQty }}</p>
+      </div>
     </div>
-    </div>
+    <teleport to="body">
+      <div v-if="showCart">
+        <Cart @toggleCart="toggleCart"/>
+        <div class="fixed z-30 top-0 left-0 right-0 bottom-0 bg-overlay" @click="toggleCart" ></div>
+      </div>
+    </teleport>
   </div>
 </template>
 
@@ -31,13 +40,14 @@ import { inject } from "vue";
 import SiteNavigation from "../shared/SiteNavigation.vue";
 import { Header } from "../../types/enums";
 import { mapGetters } from "vuex";
+import Cart from "../main/cart/Cart.vue";
 
 export default {
   name: "TheHeader",
   computed: {
-    ...mapGetters(["getCartItemsQty"]),
-    cartItemsQty() {
-      return this.getCartItemsQty;
+    ...mapGetters(["getCartProductsQty"]),
+    cartProductsQty() {
+      return this.getCartProductsQty;
     },
   },
   data() {
@@ -45,10 +55,17 @@ export default {
       logo: logo,
       cart: cart,
       hamburger: hamburger,
+      showCart: false,
       isSmallScreen: inject("isSmallScreen"),
       headerHeight: Header.height,
     };
   },
-  components: { SiteNavigation },
+  components: { SiteNavigation, Cart },
+  methods: {
+    toggleCart() {
+      this.showCart = !this.showCart;
+      console.log(this.showCart);
+    },
+  },
 };
 </script>

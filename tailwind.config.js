@@ -11,7 +11,8 @@ export default {
         whitish: "#FAFAFA",
         borderHeader: "rgba(255, 255, 255, 0.1)",
         formInputBorder: "#CFCFCF",
-        error: "#CD2C2C"
+        error: "#CD2C2C",
+        overlay: "rgba(0, 0, 0, 0.5)",
       },
       fontSize: {
         mobil: "15px"

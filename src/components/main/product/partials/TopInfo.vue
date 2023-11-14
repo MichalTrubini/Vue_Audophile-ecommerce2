@@ -33,16 +33,7 @@
         {{ "$" + " " + productData.price.toLocaleString() }}
       </p>
       <div class="mb-[88px] flex gap-4 md:mb-0">
-        <div class="relative">
-          <p class="absolute top-0 left-0 h-full flex items-center px-4 text-[16px] font-bold hover:cursor-pointer hover:text-brick" @click="decreaseQty">-</p>
-          <input
-            type="number"
-            class="w-[120px] border-none bg-gray text-center py-[15px] font-bold text-black focus:outline-none"
-            :value="quantity"
-            readonly
-          />
-          <p class="absolute top-0 right-0 h-full flex items-center px-4 text-[16px] font-bold hover:cursor-pointer hover:text-brick" @click="increaseQty">+</p>
-        </div>
+        <QtyController :quantity="quantity" @increaseQty="increaseQty" @decreaseQty="decreaseQty"/>
         <button
           class="w-[160px] border-none bg-brick text-white uppercase tracking-[1px] text-[13px] font-bold hover:bg-lightBrick"
           @click="addToCart"
@@ -58,9 +49,13 @@
 import { inject, ref, Ref } from "vue";
 import { Size } from "../../../../types/enums";
 import { useStore } from 'vuex';
+import QtyController from "./QtyController.vue";
 
 export default {
   name: "TopInfo",
+  components: {
+    QtyController,
+  },
   props: {
     productData: {
       type: Object,
@@ -86,6 +81,7 @@ export default {
     const addToCart = () => {
       const cartPayload = {
         id: props.productData.id,
+        abbrev: props.productData.abbrev,
         productTitle: props.productData.name,
         productPrice: props.productData.price,
         cartImage: props.productData.cartImage,
