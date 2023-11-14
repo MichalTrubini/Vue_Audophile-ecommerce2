@@ -13,6 +13,7 @@ export default {
         formInputBorder: "#CFCFCF",
         error: "#CD2C2C",
         overlay: "rgba(0, 0, 0, 0.5)",
+        borderConfirmation: "rgba(0,0,0,0.1)",
       },
       fontSize: {
         mobil: "15px"

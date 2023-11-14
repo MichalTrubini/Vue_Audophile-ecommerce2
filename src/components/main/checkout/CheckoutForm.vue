@@ -9,16 +9,27 @@
     />
     <Summary />
   </form>
+  <teleport to="body">
+    <div v-if="showConfimation">
+      <OrderConfirmation />
+      <div
+        class="fixed z-30 top-0 left-0 right-0 bottom-0 bg-overlay"
+        @click="toggleConfimation"
+      ></div>
+    </div>
+  </teleport>
 </template>
 
 <script lang="ts">
 import FormFields from "./partial/FormFields.vue";
 import Summary from "./partial/Summary.vue";
 import { FormData } from "../../../types/types";
+import validateForm from "../product/partials/formValidation";
+import OrderConfirmation from "./partial/OrderConfirmation.vue";
 
 export default {
   name: "Checkout",
-  components: { FormFields, Summary },
+  components: { FormFields, Summary, OrderConfirmation },
   data() {
     return {
       formData: {
@@ -45,6 +56,7 @@ export default {
         eMoneyNumber: false,
         eMoneyPin: false,
       },
+      showConfimation: false,
     };
   },
   methods: {
@@ -52,16 +64,12 @@ export default {
       this.formData = formData;
     },
     handleSubmitForm() {
-      for (let key in this.formData) {
-        if (this.formData[key as keyof typeof this.formData] === "" || this.formData[key as keyof typeof this.formData] === null) {
-          this.formDataValidation[key as keyof typeof this.formDataValidation] =
-            true;
-        } else {
-          this.formDataValidation[key as keyof typeof this.formDataValidation] =
-            false;
-        }
-      }
+      this.formDataValidation = validateForm(this.formData);
+      this.showConfimation = true;
       console.log(this.formData);
+    },
+    toggleConfimation() {
+      this.showConfimation = !this.showConfimation;
     },
   },
 };
