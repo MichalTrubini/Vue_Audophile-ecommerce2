@@ -77,3 +77,11 @@ export interface FormData {
   eMoneyNumber: number | null;
   eMoneyPin: number | null;
 }
+
+export interface cartItem {
+  id: number,
+  productTitle: string,
+  productPrice: string,
+  cartImage: string,
+  quantity: string,
+}

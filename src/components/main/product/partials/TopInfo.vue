@@ -45,6 +45,7 @@
         </div>
         <button
           class="w-[160px] border-none bg-brick text-white uppercase tracking-[1px] text-[13px] font-bold hover:bg-lightBrick"
+          @click="addToCart"
         >
           Add to cart
         </button>
@@ -56,6 +57,8 @@
 <script lang="ts">
 import { inject, ref, Ref } from "vue";
 import { Size } from "../../../../types/enums";
+import { useStore } from 'vuex';
+
 export default {
   name: "TopInfo",
   props: {
@@ -64,22 +67,44 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      screenWidth: inject("screenWidth", ref(0)) as Ref<number>,
-      size: Size,
-      quantity: 1,
+  setup(props) {
+    const store = useStore();
+    const screenWidth = inject("screenWidth", ref(0)) as Ref<number>;
+    const size = Size;
+    let quantity = ref(1);
+
+    const increaseQty = () => {
+      quantity.value++;
     };
-  },
-  methods: {
-    increaseQty() {
-      this.quantity++;
-    },
-    decreaseQty() {
-      if (this.quantity > 1) {
-        this.quantity--;
+
+    const decreaseQty = () => {
+      if (quantity.value > 1) {
+        quantity.value--;
       }
-    },
+    };
+
+    const addToCart = () => {
+      const cartPayload = {
+        id: props.productData.id,
+        productTitle: props.productData.name,
+        productPrice: props.productData.price,
+        cartImage: props.productData.cartImage,
+        quantity: quantity.value,
+      };
+
+      store.commit("addToCart", cartPayload);
+      quantity.value = 1;
+      console.log('Cart State:', store.state.cart);
+    };
+
+    return {
+      screenWidth,
+      size,
+      quantity,
+      increaseQty,
+      decreaseQty,
+      addToCart
+    };
   },
 };
 </script>

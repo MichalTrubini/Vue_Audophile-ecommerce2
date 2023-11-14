@@ -6,8 +6,10 @@ import HomePage from './views/HomePage.vue'
 import CategoryPage from './views/CategoryPage.vue'
 import ProductPageVue from './views/ProductPage.vue'
 import CheckoutPage from './views/CheckoutPage.vue'
+import store from './store/index'
 
 const app = createApp(App)
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -25,5 +27,5 @@ const router = createRouter({
     }
 })
 app.use(router)
-
+app.use(store)
 app.mount('#app')
