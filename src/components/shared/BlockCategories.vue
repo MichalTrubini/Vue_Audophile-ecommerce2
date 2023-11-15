@@ -14,12 +14,12 @@
         class="absolute w-[145px] top-[-45px] left-[50%] transform translate-x-[-50%] lg:w-[200px]"
         :class="{mobileSize: isMobileNav}"
       />
-      <h3
+      <h2
         class="uppercase text-center tracking-[1px] text-[15px] mb-4 lg:text-lg"
         :class="{marginFix: isMobileNav}"
       >
         {{ item.title }}
-      </h3>
+      </h2>
       <router-link :to="item.path">
         <div class="flex items-center justify-center gap-2" @click="navTrigger">
           <p class="uppercase text-[13px] leading-4 font-bold tracking-[1px]">
