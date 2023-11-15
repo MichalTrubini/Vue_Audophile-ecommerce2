@@ -10,7 +10,7 @@
       :id="name"
       @input="userInput"
       @blur="validateInput"
-      class="w-full border border-formInputBorder py-[18px] px-[24px] rounded-xl font-bold text-sm focus:outline-lightBrick"
+      class="w-full border border-formInputBorder py-[18px] px-[24px] rounded-xl font-bold text-sm focus:outline-lightBrick hover:border-lightBrick hover:cursor-pointer" 
       :class="{ isError: isEmpty || isInvalidEmail || (isEmptyOnSubmit && notBlurred) }"
     />
     <p

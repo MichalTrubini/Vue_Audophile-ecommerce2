@@ -15,6 +15,7 @@
       :value="value"
       @input="userInput"
       @click="validateInput"
+      class="hover:cursor-pointer"
     />
   </div>
 </template>

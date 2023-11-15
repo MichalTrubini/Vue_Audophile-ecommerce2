@@ -51,6 +51,12 @@ export default {
 </script>
 
 <style>
+#app {
+  display: grid;
+  grid-template-rows: 1fr auto; /* Header, Main, Footer */
+  min-height: 100vh;
+}
+
 body {
   font-family: "Manrope", sans-serif;
 }

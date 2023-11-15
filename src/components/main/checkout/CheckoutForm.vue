@@ -1,7 +1,14 @@
 <template>
+  <div v-if="cartItems.length === 0" class="mb-8">
+    <h2 class="mb-6 mt-8 text-xl">Checkout is not available.</h2>
+    <p class="mb-6">There are no items in your cart.</p>
+    <LinkToPage :type="'lightFull'" :text="'Back to Home page'" :link="'/'"/>
+  </div>
   <form
     class="form grid grid-cols-1 gap-8 lg:gap-x-[30px] lg:items-start"
     @submit.prevent="handleSubmitForm"
+    novalidate
+    v-if="cartItems.length > 0"
   >
     <FormFields
       @updateFormData="handleUpdateFormData"
@@ -26,10 +33,12 @@ import Summary from "./partial/Summary.vue";
 import { FormData } from "../../../types/types";
 import validateForm from "../product/partials/formValidation";
 import OrderConfirmation from "./partial/OrderConfirmation.vue";
+import { mapGetters } from "vuex";
+import LinkToPage from "../../shared/LinkToPage.vue";
 
 export default {
   name: "Checkout",
-  components: { FormFields, Summary, OrderConfirmation },
+  components: { FormFields, Summary, OrderConfirmation, LinkToPage },
   data() {
     return {
       formData: {
@@ -59,18 +68,25 @@ export default {
       showConfimation: false,
     };
   },
+  computed: {
+    ...mapGetters(["cartItems"]),
+  },
   methods: {
     handleUpdateFormData(formData: FormData) {
       this.formData = formData;
     },
     handleSubmitForm() {
       this.formDataValidation = validateForm(this.formData);
+      if (Object.values(this.formDataValidation).includes(true)) return;
+      console.log(this.formDataValidation);
       this.showConfimation = true;
-      console.log(this.formData);
     },
     toggleConfimation() {
       this.showConfimation = !this.showConfimation;
     },
+  },
+  mounted() {
+    console.log(this.cartItems.length === 0)
   },
 };
 </script>

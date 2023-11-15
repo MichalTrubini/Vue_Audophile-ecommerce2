@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-whitish pb-[97px] dt:pb-[141px]">
+  <div class="bg-whitish pb-[97px] dt:pb-[141px] h-full">
     <div class="pagePadding maxLimit">
       <GoBack />
       <div >
