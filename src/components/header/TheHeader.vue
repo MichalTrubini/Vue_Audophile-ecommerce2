@@ -4,7 +4,7 @@
     :style="{ height: headerHeight + 'px' }"
   >
     <div v-if="isSmallScreen" class="md:w-1/12">
-      <img :src="hamburger" alt="hamburger" />
+      <img :src="hamburger" alt="hamburger" @click="showMobileNav" />
     </div>
     <div class="md:w-10/12 mdd:w-auto">
       <router-link to="/">
@@ -24,9 +24,20 @@
       </div>
     </div>
     <teleport to="body">
-      <div v-if="showCart" >
-        <Cart @toggleCart="toggleCart"/>
-        <div class="fixed z-30 top-0 left-0 right-0 bottom-0 bg-overlay" @click="toggleCart" ></div>
+      <div v-if="showCart">
+        <Cart @toggleCart="toggleCart" />
+        <div
+          class="fixed z-30 top-0 left-0 right-0 bottom-0 bg-overlay"
+          @click="toggleCart"
+        ></div>
+      </div>
+
+      <div v-if="showModalNav" key="mobileNav">
+        <MobileNav @navTrigger="showMobileNav" />
+        <div
+          class="fixed z-20 top-0 left-0 right-0 bottom-0 bg-overlay"
+          @click="showMobileNav"
+        ></div>
       </div>
     </teleport>
   </div>
@@ -41,6 +52,7 @@ import SiteNavigation from "../shared/SiteNavigation.vue";
 import { Header } from "../../types/enums";
 import { mapGetters } from "vuex";
 import Cart from "../main/cart/Cart.vue";
+import MobileNav from "./MobileNav.vue";
 
 export default {
   name: "TheHeader",
@@ -56,15 +68,19 @@ export default {
       cart: cart,
       hamburger: hamburger,
       showCart: false,
+      showModalNav: false,
       isSmallScreen: inject("isSmallScreen"),
       headerHeight: Header.height,
     };
   },
-  components: { SiteNavigation, Cart },
+  components: { SiteNavigation, Cart, MobileNav },
   methods: {
     toggleCart() {
       this.showCart = !this.showCart;
-      console.log(this.showCart);
+    },
+    showMobileNav() {
+      this.showModalNav = !this.showModalNav;
+      console.log("clicked");
     },
   },
 };

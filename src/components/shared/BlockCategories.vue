@@ -6,19 +6,22 @@
       v-for="(item, index) in data"
       :key="index"
       class="bg-gray rounded-lg relative pt-[88px] pb-[22px] md:w-1/3 lg:pt-[116px] lg:pb-[30px]"
+      :class="{mobilePadding: isMobileNav}"
     >
       <img
         :src="item.image"
         alt="headphones"
         class="absolute w-[145px] top-[-45px] left-[50%] transform translate-x-[-50%] lg:w-[200px]"
+        :class="{mobileSize: isMobileNav}"
       />
       <h3
         class="uppercase text-center tracking-[1px] text-[15px] mb-4 lg:text-lg"
+        :class="{marginFix: isMobileNav}"
       >
         {{ item.title }}
       </h3>
       <router-link :to="item.path">
-        <div class="flex items-center justify-center gap-2">
+        <div class="flex items-center justify-center gap-2" @click="navTrigger">
           <p class="uppercase text-[13px] leading-4 font-bold tracking-[1px]">
             shop
           </p>
@@ -36,6 +39,12 @@ import earphonesImage from "../../assets/shared/desktop/image-category-thumbnail
 import iconArrow from "../../assets/shared/desktop/icon-arrow-right.svg";
 export default {
   name: "BlockCategories",
+  props: {
+    isMobileNav: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     data: [
       {
@@ -56,5 +65,26 @@ export default {
     ],
     iconArrow: iconArrow,
   }),
+  methods: {
+    navTrigger() {
+      this.$emit("navTrigger");
+    },
+  },
 };
 </script>
+
+<style scoped>
+
+.mobilePadding {
+  padding-top: 48px;
+}
+
+.mobileSize {
+  width: 100px;
+  top: -35px;
+}
+
+.marginFix {
+  margin-bottom: 6px;
+}
+</style>

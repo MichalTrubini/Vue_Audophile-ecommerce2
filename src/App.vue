@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-blackish fixed w-full top-0 z-20">
+  <header class="bg-blackish fixed w-full top-0 z-[9999]">
     <TheHeader />
   </header>
   <main class="relative z-10 mt-[89px]">

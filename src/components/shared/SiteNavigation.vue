@@ -27,3 +27,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.router-link-active {
+  color: #D87D4A;
+}
+
+</style>

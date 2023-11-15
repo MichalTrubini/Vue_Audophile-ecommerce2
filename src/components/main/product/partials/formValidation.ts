@@ -1,4 +1,8 @@
 const validateForm = (formData: any) => {
+
+  const regex =
+  /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
+
   const formDataValidation = {
     name: false,
     email: false,
@@ -24,7 +28,8 @@ const validateForm = (formData: any) => {
         false;
     }
   }
-
+  if (regex.test(formData.email) === false) formDataValidation.email = true;
+  
   return formDataValidation;
 };
 

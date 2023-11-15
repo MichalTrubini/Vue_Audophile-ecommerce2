@@ -21,7 +21,6 @@
       <OrderConfirmation />
       <div
         class="fixed z-30 top-0 left-0 right-0 bottom-0 bg-overlay"
-        @click="toggleConfimation"
       ></div>
     </div>
   </teleport>
