@@ -3,11 +3,11 @@
     <ul
       class="flex flex-col gap-4 font-bold tracking-[2px] text-white uppercase md:flex-row md:gap-[34px]"
     >
-      <router-link v-for="item in navList" :key="item.id" :to="item.path">
-        <li class="hover:text-brick hover:cursor-pointer text-[13px]">
+      <li v-for="item in navList" :key="item.id" class="hover:text-brick hover:cursor-pointer text-[13px]">
+        <router-link  :to="item.path">
           {{ item.name }}
-        </li>
-      </router-link>
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
@@ -30,7 +30,6 @@ export default {
 
 <style scoped>
 .router-link-active {
-  color: #D87D4A;
+  color: #d87d4a;
 }
-
 </style>
