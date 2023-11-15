@@ -83,10 +83,7 @@ export default {
     toggleConfimation() {
       this.showConfimation = !this.showConfimation;
     },
-  },
-  mounted() {
-    console.log(this.cartItems.length === 0)
-  },
+  }
 };
 </script>
 

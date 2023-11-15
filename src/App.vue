@@ -81,6 +81,16 @@ p {
   padding-left: 1.5rem;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media screen and (min-width: 768px) {
   .pagePadding {
     padding-right: 2.5rem;

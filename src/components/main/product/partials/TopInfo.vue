@@ -90,7 +90,6 @@ export default {
 
       store.commit("addToCart", cartPayload);
       quantity.value = 1;
-      console.log('Cart State:', store.state.cart);
     };
 
     return {
