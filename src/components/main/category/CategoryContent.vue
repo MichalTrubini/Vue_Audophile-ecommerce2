@@ -46,7 +46,12 @@ export default {
       type: String,
       required: true,
     },
-  }
+  },
+  mounted() {
+    if (this.categoryData && this.categoryData.length === 0) {
+      this.$router.push("/");
+    }
+  },
 };
 </script>
 

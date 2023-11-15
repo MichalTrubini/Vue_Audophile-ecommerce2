@@ -32,5 +32,10 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    if (!this.productData) {
+      this.$router.push("/");
+    }
+  },
 };
 </script>

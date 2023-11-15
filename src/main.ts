@@ -17,6 +17,7 @@ const router = createRouter({
         { path: '/category/:name', component: CategoryPage },
         { path: '/product/:slug', component: ProductPageVue },
         { path: '/checkout', component: CheckoutPage },
+        { path: '/:catchAll(.*)', component: HomePage },
     ],
     scrollBehavior(_to, _from, savedPosition) {
         if (savedPosition) {
