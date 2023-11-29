@@ -8,7 +8,7 @@
           cart <span>({{ cartProductsQty }})</span>
         </p>
         <p
-          class="text-[15px] underline decoration-1 underline-offset-2"
+          class="text-[15px] underline decoration-1 underline-offset-2 hover:cursor-pointer"
           @click="emptyCart"
         >
           Remove all
